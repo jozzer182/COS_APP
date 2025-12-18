@@ -1,4 +1,4 @@
-# COS+ - Control de Órdenes de Servicio
+# COS+ - Service Order Control
 
 <div align="center">
 
@@ -9,93 +9,93 @@
 ![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)
 ![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)
 
-**Sistema integral de gestión de órdenes de servicio para el sector energético**
+**Comprehensive service order management system for the energy sector**
 
-[Características](#-características) •
-[Instalación](#-instalación) •
-[Configuración](#-configuración) •
-[Arquitectura](#-arquitectura) •
-[Contacto](#-contacto)
+[Features](#-features) •
+[Installation](#-installation) •
+[Configuration](#-configuration) •
+[Architecture](#-architecture) •
+[Contact](#-contact)
 
 </div>
 
 ---
 
-## 📋 Descripción
+## 📋 Description
 
-**COS+** (Control de Órdenes de Servicio Plus) es una aplicación Flutter multiplataforma diseñada para la gestión integral de contratos, órdenes de servicio, facturas y conformidades en el sector energético. Permite el seguimiento en tiempo real de proyectos, control de proveedores y análisis de posiciones contractuales.
+**COS+** (Service Order Control Plus) is a multi-platform Flutter application designed for comprehensive management of contracts, service orders, invoices, and conformities in the energy sector. It enables real-time project tracking, vendor control, and contractual position analysis.
 
-## ✨ Características
+## ✨ Features
 
-### 📊 Gestión de Datos
-- **Contratos**: Administración completa de contratos con proveedores
-- **Posiciones**: Control detallado de posiciones contractuales
-- **Facturas**: Seguimiento y gestión de facturación
-- **Conformidades**: Sistema de aprobación y conformidades
-- **Proveedores**: Base de datos de proveedores integrada
+### 📊 Data Management
+- **Contracts**: Complete contract management with vendors
+- **Positions**: Detailed contractual position control
+- **Invoices**: Invoice tracking and management
+- **Conformities**: Approval and conformity system
+- **Vendors**: Integrated vendor database
 
-### 🔐 Seguridad
-- Autenticación con Firebase Auth
-- Gestión de perfiles y permisos por roles
-- Variables de entorno para credenciales sensibles
-- Verificación de email para nuevos usuarios
+### 🔐 Security
+- Firebase Auth authentication
+- Profile and role-based permission management
+- Environment variables for sensitive credentials
+- Email verification for new users
 
-### 📱 Multiplataforma
+### 📱 Multi-platform
 - ✅ Web (Chrome, Edge, Firefox)
 - ✅ Windows Desktop
-- ⏳ Android (configuración pendiente)
-- ⏳ iOS (configuración pendiente)
+- ⏳ Android (configuration pending)
+- ⏳ iOS (configuration pending)
 
-### 🔄 Sincronización
-- Sincronización en tiempo real con Firebase Realtime Database
-- Integración con múltiples instancias de Supabase
-- Fallback a Google Apps Script para datos legacy
+### 🔄 Synchronization
+- Real-time synchronization with Firebase Realtime Database
+- Integration with multiple Supabase instances
+- Fallback to Google Apps Script for legacy data
 
-## 🛠 Stack Tecnológico
+## 🛠 Tech Stack
 
-| Categoría | Tecnología |
-|-----------|------------|
+| Category | Technology |
+|----------|------------|
 | **Framework** | Flutter 3.7+ |
-| **Lenguaje** | Dart 3.7+ |
+| **Language** | Dart 3.7+ |
 | **State Management** | Flutter BLoC |
 | **Backend** | Firebase (Auth, Realtime DB, Analytics) |
-| **Base de Datos** | Supabase (PostgreSQL) |
+| **Database** | Supabase (PostgreSQL) |
 | **APIs** | Google Apps Script |
 | **Routing** | GetX |
 
-## 📦 Instalación
+## 📦 Installation
 
-### Prerrequisitos
+### Prerequisites
 
 - Flutter SDK >= 3.7.2
 - Dart SDK >= 3.7.2
-- Cuenta de Firebase con proyecto configurado
-- Cuenta de Supabase con proyecto(s) configurado(s)
+- Firebase account with configured project
+- Supabase account with configured project(s)
 
-### Pasos de instalación
+### Installation Steps
 
 ```bash
-# 1. Clonar el repositorio
+# 1. Clone the repository
 git clone https://github.com/jozzer182/COS_APP.git
 cd COS_APP
 
-# 2. Configurar variables de entorno
+# 2. Configure environment variables
 cp .env.example .env
-# Edita .env con tus credenciales reales
+# Edit .env with your actual credentials
 
-# 3. Instalar dependencias
+# 3. Install dependencies
 flutter pub get
 
-# 4. Ejecutar la aplicación
-flutter run -d chrome  # Para web
-flutter run -d windows # Para Windows
+# 4. Run the application
+flutter run -d chrome  # For web
+flutter run -d windows # For Windows
 ```
 
-## ⚙️ Configuración
+## ⚙️ Configuration
 
-### Variables de Entorno
+### Environment Variables
 
-El proyecto utiliza `flutter_dotenv` para gestionar credenciales de forma segura. Copia `.env.example` a `.env` y completa con tus valores:
+The project uses `flutter_dotenv` to manage credentials securely. Copy `.env.example` to `.env` and fill in your values:
 
 ```env
 # Firebase Configuration
@@ -113,9 +113,9 @@ SUPABASE_MAIN_KEY=your_key
 GOOGLE_SCRIPT_DATA_URL=https://script.google.com/macros/s/.../exec
 ```
 
-📖 **Guía detallada**: Ver [docs/SETUP.md](docs/SETUP.md) para instrucciones completas.
+📖 **Detailed Guide**: See [docs/SETUP.md](docs/SETUP.md) for complete instructions.
 
-## 🏗 Arquitectura
+## 🏗 Architecture
 
 ```
 lib/
@@ -123,71 +123,71 @@ lib/
 │   ├── main_bloc.dart
 │   ├── main_event.dart
 │   └── main_state.dart
-├── resources/               # Utilidades y configuración
-│   ├── env_config.dart      # Acceso a variables de entorno
+├── resources/               # Utilities and configuration
+│   ├── env_config.dart      # Environment variables access
 │   └── ...
-├── contratos/               # Módulo de contratos
+├── contratos/               # Contracts module
 │   ├── controller/
 │   ├── model/
 │   └── view/
-├── facturas/                # Módulo de facturas
-├── posiciones/              # Módulo de posiciones
-├── proveedores/             # Módulo de proveedores
-├── conformidades/           # Módulo de conformidades
-├── login/                   # Autenticación
-├── Home/                    # Página principal
+├── facturas/                # Invoices module
+├── posiciones/              # Positions module
+├── proveedores/             # Vendors module
+├── conformidades/           # Conformities module
+├── login/                   # Authentication
+├── Home/                    # Home page
 └── main.dart                # Entry point
 ```
 
-### Patrón de Arquitectura
+### Architecture Pattern
 
-El proyecto sigue una arquitectura **MVC + BLoC**:
+The project follows an **MVC + BLoC** architecture:
 
-- **Model**: Clases de datos en `*/model/`
-- **View**: Widgets de UI en `*/view/`
-- **Controller**: Lógica de negocio en `*/controller/`
-- **BLoC**: Gestión de estado centralizada en `bloc/`
+- **Model**: Data classes in `*/model/`
+- **View**: UI widgets in `*/view/`
+- **Controller**: Business logic in `*/controller/`
+- **BLoC**: Centralized state management in `bloc/`
 
-## 🔒 Seguridad
+## 🔒 Security
 
-Este proyecto maneja información sensible. Asegúrate de:
+This project handles sensitive information. Make sure to:
 
-1. ✅ **NUNCA** commitear el archivo `.env`
-2. ✅ Usar `.env.example` como referencia
-3. ✅ Revisar `.gitignore` antes de hacer push
-4. ✅ No hardcodear credenciales en el código
+1. ✅ **NEVER** commit the `.env` file
+2. ✅ Use `.env.example` as reference
+3. ✅ Review `.gitignore` before pushing
+4. ✅ Don't hardcode credentials in code
 
-### Archivos excluidos del repositorio
+### Files Excluded from Repository
 
-- `.env` - Variables de entorno
-- `android/app/google-services.json` - Configuración Firebase Android
-- `ios/Runner/GoogleService-Info.plist` - Configuración Firebase iOS
-- `*.csv` - Archivos de datos
+- `.env` - Environment variables
+- `android/app/google-services.json` - Firebase Android configuration
+- `ios/Runner/GoogleService-Info.plist` - Firebase iOS configuration
+- `*.csv` - Data files
 
-## 📊 Dependencias Principales
+## 📊 Main Dependencies
 
 ```yaml
 dependencies:
   flutter_bloc: ^9.1.0       # State management
   firebase_core: ^3.13.0     # Firebase base
-  firebase_auth: ^5.5.2      # Autenticación
+  firebase_auth: ^5.5.2      # Authentication
   firebase_database: ^11.3.5 # Realtime Database
-  supabase_flutter: ^2.8.4   # Base de datos
-  flutter_dotenv: ^5.2.1     # Variables de entorno
-  get: ^4.6.6                # Routing y utilidades
+  supabase_flutter: ^2.8.4   # Database
+  flutter_dotenv: ^5.2.1     # Environment variables
+  get: ^4.6.6                # Routing and utilities
   http: ^1.1.0               # HTTP requests
-  fl_chart: ^0.64.0          # Gráficos
+  fl_chart: ^0.64.0          # Charts
 ```
 
-## 🤝 Contribución
+## 🤝 Contributing
 
-1. Fork el proyecto
-2. Crea tu feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
-4. Push al branch (`git push origin feature/AmazingFeature`)
-5. Abre un Pull Request
+1. Fork the project
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-## 📬 Contacto
+## 📬 Contact
 
 **José Zarabanda**
 
@@ -199,6 +199,6 @@ dependencies:
 
 <div align="center">
 
-Desarrollado con ❤️ para ENEL Colombia
+Developed with ❤️ for ENEL Colombia
 
 </div>
